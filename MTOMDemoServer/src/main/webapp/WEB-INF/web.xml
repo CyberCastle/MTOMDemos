@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>MTOM Demo Server</display-name>
+    <!-- Unique ID-->
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>MTOMDemoServer</param-value>
+    </context-param>
+    <!-- End Unique ID-->
+    <!-- JAX-WS Settings-->
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>DocumentManager</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>   
+    <servlet-mapping>
+        <servlet-name>DocumentManager</servlet-name>
+        <url-pattern>/DocumentManager</url-pattern>
+    </servlet-mapping>
+    <!-- End JAX-WS Settings-->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
